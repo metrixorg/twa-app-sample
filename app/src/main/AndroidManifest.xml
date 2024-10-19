@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ir.metrix.twa.sample">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".MainApplication"
+        android:icon="@mipmap/ic_metrix"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_metrix_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.google.androidbrowserhelper.trusted.LauncherActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+            <meta-data
+                android:name="android.support.customtabs.trusted.DEFAULT_URL"
+                android:value="https://sample-pwa-drab.vercel.app" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="sample-pwa-drab.vercel.app"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ReceiverActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.Transparent">
+            <intent-filter>
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!--"intent://metrix?key=value#Intent;scheme=myscheme;package=my.app.package;action=ir.metrix.NewEvent;end"-->
+                <action android:name="ir.metrix.NewEvent" />
+                <action android:name="ir.metrix.NewRevenue" />
+                <action android:name="ir.metrix.UserAttributes" />
+                <action android:name="ir.metrix.UserCustomId" />
+                <data
+                    android:host="metrix"
+                    android:scheme="myscheme" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".CustomFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="ir.metrix.APPLICATION_ID"
+            android:value="zcmwmxbkmuodelu" />
+        <meta-data
+            android:name="ir.metrix.API_KEY"
+            android:value="a15f782d-0d20-4159-9c5e-23f246e857e6" />
+        <meta-data
+            android:name="ir.metrix.SIGNATURE"
+            android:value="pmHhXFAuXDRYPZO6AQegjJ5khzTyLpP1MLO4AZacNSKpOxzsHk8lEhuxCTdeZHGfKCx1JIJerjFgAwQ6VGy0UDrpKfJnMAurnS5sboGfUuWuWRHkIBm2Cd0=" />
+        <meta-data
+            android:name="metrix_storeName"
+            android:value="GooglePlay" />
+    </application>
+</manifest>
