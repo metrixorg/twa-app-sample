@@ -10,5 +10,7 @@
 سپس ReceiverActivity را مطابق مانیفست به پروژه خود اضافه کنید.
 در نظر داشته باشید که در هنگام اجرای این کار مقدار myscheme و my.app.package را با مقدار انحصاری خود جایگذاری کنید.
 
-سپس از طریق TWA با فراخوانی "intent://metrix?key=value#Intent;scheme=myscheme;package=my.app.package;action=ir.metrix.NewEvent;end" (مقدار‌های متفاوت action وکوئری‌پارامتر‌های دلخواه که در ReceiverActivity تعریف شده‌اند) میتوانید با کد نیتیو ارتباط برقرار کنید.
+سپس از طریق TWA با فراخوانی
+"intent://metrix?key=value#Intent;scheme=myscheme;package=my.app.package;action=ir.metrix.NewEvent;end" 
+(مقدار‌های متفاوت action وکوئری‌پارامتر‌های دلخواه که در ReceiverActivity تعریف شده‌اند) میتوانید با کد نیتیو ارتباط برقرار کنید.
 </div>
